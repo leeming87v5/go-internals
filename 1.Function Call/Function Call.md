@@ -4,6 +4,7 @@
 $ go version
 go version go1.10.1 linux/amd64
 ```
+---
 
 ### golang汇编代码基本要素
 
@@ -59,4 +60,6 @@ go tool compile -S simplefunc.go
 ```asm
 0x0000 00000 (simplefunc.go:5)	TEXT	"".simpleFunc(SB), NOSPLIT, $0-16
 ```
-- `0x0000 00000` 指示代码的相对函数起始位置的偏移量，前半部分是16进制表示，后半部分是10进制表示。
+- `0x0000 00000` 指示代码的相对函数起始位置的偏移量，前半部分是16进制表示，后半部分是10进制表示；
+- `(simplefunc.go:5)` 源代码所在文件以及行号；
+- `TEXT	"".simpleFunc(SB)` 指令 `TEXT` 将 `"".simpleFunc(SB)` 符号声明在 `.text` 段，并且下面紧跟的就是函数的实现；
