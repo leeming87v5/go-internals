@@ -63,3 +63,7 @@ go tool compile -S simplefunc.go
 - `0x0000 00000` 指示代码的相对函数起始位置的偏移量，前半部分是16进制表示，后半部分是10进制表示；
 - `(simplefunc.go:5)` 源代码所在文件以及行号；
 - `TEXT	"".simpleFunc(SB)` 指令 `TEXT` 将 `"".simpleFunc(SB)` 符号声明在 `.text` 段，并且下面紧跟的就是函数的实现；
+- `NOSPLIT` 这个是 golang 特有的指令，用来提示编译器无需为此函数处理栈增长逻辑；
+这里需要解析下，golang采用了特有的“分离栈”的栈管理逻辑，可以在运行时动态地为函数分配更多的栈空间，以满足需求；
+“分离栈”之所以可以动态增长，主要得益于编译器在函数的入口处加入额外的代码，用来检查本函数的栈使用量是否会超过当前栈的容量，并且依据结果动态增减栈空间；
+具体的设计可以参考[这篇文档](https://docs.google.com/document/d/1wAaf1rYoM4S4gtnPh0zOlGzWtrZFQ5suE8qr2sD8uWQ/pub)。
