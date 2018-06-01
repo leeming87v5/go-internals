@@ -5,7 +5,7 @@ $ go version
 go version go1.10.1 linux/amd64
 ```
 
-### 1. go汇编代码基本要素
+### golang汇编代码基本要素
 
 考虑以下代码片段：
 ```go
@@ -54,3 +54,9 @@ go tool compile -S simplefunc.go
 	0x0033 00051 (simplefunc.go:13)	RET
 	;; 栈处理代码，暂不考虑
 ```
+#### simpleFunc代码解析
+
+```asm
+0x0000 00000 (simplefunc.go:5)	TEXT	"".simpleFunc(SB), NOSPLIT, $0-16
+```
+- `0x0000 00000` 指示代码的相对函数起始位置的偏移量，前半部分是16进制表示，后半部分是10进制表示。
