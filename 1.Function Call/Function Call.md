@@ -7,7 +7,7 @@ go version go1.10.1 linux/amd64
 
 考虑以下代码片段：
 ```go
-// simple_func.go
+// simplefunc.go
 package main
 
 //go:noinline
@@ -24,7 +24,7 @@ func main() {
 
 先来编译成汇编
 ```bash
-go tool compile -S simple_func.go
+go tool compile -S simplefunc.go
 ```
 
 ```asm
