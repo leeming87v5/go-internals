@@ -55,10 +55,12 @@ go tool compile -S simplefunc.go
 	0x0033 00051 (simplefunc.go:13)	RET
 	;; 栈处理代码，暂不考虑
 ```
-#### simpleFunc代码解析
+#### simpleFunc要素分解
 
 ```asm
 0x0000 00000 (simplefunc.go:5)	TEXT	"".simpleFunc(SB), NOSPLIT, $0-16
+0x0000 00000 (simplefunc.go:5)	FUNCDATA	$0, gclocals·f207267fbf96a0178e8758c6e3e0ce28(SB)
+0x0000 00000 (simplefunc.go:5)	FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
 ```
 - `0x0000 00000` 指示代码的相对函数起始位置的偏移量，前半部分是16进制表示，后半部分是10进制表示；
 - `(simplefunc.go:5)` 源代码所在文件以及行号；
